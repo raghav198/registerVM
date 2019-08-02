@@ -1,0 +1,37 @@
+regs    slot    arg1    arg2    arg3    ret     bp      loc1    loc2    loc3
+                                S
+B
+
+
+
+in F:
+    x: B-2
+    y: B-1
+
+    a: B+1
+    b: B+2
+    c: B+3
+
+
+main :=
+    local k;
+    call f(x, y);
+
+
+f[x, y] :=
+    local p, q, r;
+    call g(p, y);
+
+    p is (b+1)
+    q is (b+2)
+    r is (b+3)
+
+    x is (b-3)
+    y is (b-2)
+
+g[p, y] :=
+    local z;
+
+    z is (b+1)
+    p is (b-3)
+    y is (b-2)
